@@ -4,5 +4,6 @@ module.exports = function() {
 		res.render('index', { nome: 'Expressiu' });
 	};
 
+
 	return controller;
 };
