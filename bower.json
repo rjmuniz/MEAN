@@ -1,0 +1,22 @@
+{
+  "name": "mean",
+  "description": "projeto neam",
+  "main": "server.js",
+  "authors": [
+    "rjmuniz"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/rjmuniz/MEAN",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3"
+  }
+}
