@@ -4,7 +4,7 @@ angular.module('contatooh').controller('ContatosController',
 		$scope.incrementa = function() {
 			$scope.total++;
 		};
-
+		$scope.filtro = '';
 		$scope.contatos = [
 			{
 				"_id": 1,
