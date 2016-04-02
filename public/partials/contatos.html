@@ -1,9 +1,11 @@
 <div class="jumbotron">
 	<h1 class="text-center">Bem-vindo ao Contatooh</h1>
 </div>
-<input ng-model="filtro" type="search" placeholder="parte do nome">
 <button class="btn btn-primary" ng-click="incrementa()">Novo</button>
-<p>Contatos cadastrados: {{total}}</p>
+
+<input ng-model="filtro" type="search" placeholder="parte do nome">
+
+<p>Contatos cadastrados: {{contatos.length}}</p>
 
 
 <div class="table-responsive">
