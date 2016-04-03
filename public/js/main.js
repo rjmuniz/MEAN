@@ -10,6 +10,10 @@ angular.module('contatooh', ['ngRoute', 'ngResource'])
 				templateUrl: 'partials/contato.html',
 				controller: 'ContatoController'
 			})
+			.when('/contato', {
+				templateUrl: 'partials/contato.html',
+				controller: 'ContatoController'
+			})
 			.otherwise({ redirectTo: '/contatos' });
 
 	});
