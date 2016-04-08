@@ -1,0 +1,7 @@
+adicionar um object no mongodb
+///
+
+mongo
+use contatooh
+db.contatos.insert({"nome": "Ricardo Muniz", "email": "rjmuniz@gmail.com"})
+	
