@@ -5,3 +5,8 @@ mongo
 use contatooh
 db.contatos.insert({"nome": "Ricardo Muniz", "email": "rjmuniz@gmail.com"})
 	
+	
+Client ID
+7a21439d64d3e11ea8cf
+Client Secret
+6090151342870f315739665e76919ba581f69ce0

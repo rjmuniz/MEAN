@@ -1,5 +1,8 @@
 var load = require('express-load');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var passport = require('passport');
 var express = require('express');
 
 
@@ -14,6 +17,15 @@ module.exports = function() {
 	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(bodyParser.json());
 	app.use(require('method-override')());
+	app.use(cookieParser());
+	app.use(session({
+		secret: 'teste1234',
+		resave: true,
+		saveUninitialized: true
+	}));
+	app.use(passport.initialize());
+	app.use(passport.session());
+	
 	
 
   load('models', { cwd: 'app' }) //load models in folder app
