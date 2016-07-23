@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-module.exports = function() {
+module.exports = function () {
 	var schema = mongoose.Schema({
 		nome: {
 			type: String,
@@ -13,7 +13,7 @@ module.exports = function() {
 				unique: true
 			}
 		},
-		emergencia:{
+		emergencia: {
 			type: mongoose.Schema.ObjectId,
 			ref: 'Contato'
 		}

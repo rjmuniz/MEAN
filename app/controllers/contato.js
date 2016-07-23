@@ -1,46 +1,46 @@
 var sanitize = require('mongo-sanitize');
-module.exports = function(app) {
+module.exports = function (app) {
 	var Contato = app.models.contato;
 
 	var controller = {};
 
-	controller.listaContatos = function(req, res) {
+	controller.listaContatos = function (req, res) {
 		Contato.find().populate('emergencia').exec()
-			.then(function(contatos) {
+			.then(function (contatos) {
 				res.json(contatos);
-			}, function(erro) {
+			}, function (erro) {
 				console.error(erro);
 				res.status(500).json(erro);
 			});
 	};
 
-	controller.obtemContato = function(req, res) {
+	controller.obtemContato = function (req, res) {
 		var _id = req.params.id;
 		Contato.findById(_id).exec()
-			.then(function(contato) {
+			.then(function (contato) {
 				if (!contato) throw new Error("Contato não encontrado");
 				res.json(contato);
 			},
-			function(error) {
+			function (error) {
 				console.error(erro);
 				res.status(404).json(erro);
 			});
 	};
 
-	controller.removeContato = function(req, res) {
+	controller.removeContato = function (req, res) {
 		var _id = sanitize(req.params.id);
 
 		Contato.remove({ "_id": _id }).exec()
-			.then(function() {
+			.then(function () {
 				res.status(204).end();
 			},
-			function(error) {
+			function (error) {
 				console.error(erro);
 				res.status(404).json(erro);
 			});
 	};
 
-	controller.salvaContato = function(req, res) {
+	controller.salvaContato = function (req, res) {
 		var _id = req.body._id;
 
 		var dados = {
@@ -48,15 +48,15 @@ module.exports = function(app) {
 			"email": req.body.email,
 			"emergencia": req.body.emergencia || null
 		};
-		
+
 
 		if (_id) {
 			Contato.findByIdAndUpdate(_id, dados).exec()
 				.then(
-				function(contato) {
+				function (contato) {
 					res.json(contato);
 				},
-				function(erro) {
+				function (erro) {
 					console.error(erro);
 					res.status(500).json(erro);
 				});
@@ -64,10 +64,10 @@ module.exports = function(app) {
 			//insert
 			Contato.create(dados)
 				.then(
-				function(contato) {
+				function (contato) {
 					res.status(201).json(contato);
 				},
-				function(erro) {
+				function (erro) {
 					console.error(erro);
 					res.status(500).json(erro);
 				}
