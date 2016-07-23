@@ -1,13 +1,14 @@
 var mongoose = require('mongoose');
 var findOrCreate = require('mongoose-findorcreate');
-module.exports = function(){
+module.exports = function () {
 	var schema = mongoose.Schema(
 		{
 			login: {
 				type: String,
 				required: true,
-				index: {unique:true
-					}
+				index: {
+					unique: true
+				}
 			},
 			nome: {
 				type: String,
@@ -18,7 +19,7 @@ module.exports = function(){
 				required: false
 			},
 			inclusao: {
-				type:Date,
+				type: Date,
 				default: Date.now
 			}
 		}
